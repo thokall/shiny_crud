@@ -4,7 +4,7 @@
 #' Module to add & edit cars in the mtcars database file
 #'
 #' @importFrom shiny observeEvent showModal modalDialog removeModal fluidRow column textInput numericInput selectInput modalButton actionButton reactive eventReactive
-#' @importFrom shinyFeedback showFeedbackDanger hideFeedback
+#' @importFrom shinyFeedback feedbackDanger hideFeedback
 #' @importFrom shinyjs enable disable
 #' @importFrom lubridate with_tz
 #' @importFrom digest digest
@@ -133,17 +133,23 @@ car_edit_module <- function(input, output, session, modal_title, car_to_edit, mo
   # Observe event for "Model" text input in Add/Edit Car Modal
   # `shinyFeedback`
   observeEvent(input$model, {
+      shinyFeedback::feedbackDanger(
+                         "model",
+                         condition = input$model == "",
+                         text = "Must enter model of car"
+                         )
+     
 
-    if (input$model == "") {
-      shinyFeedback::showFeedbackDanger(
-        "model",
-        text = "Must enter model of car!"
-      )
-      shinyjs::disable('submit')
-    } else {
-      shinyFeedback::hideFeedback("model")
-      shinyjs::enable('submit')
-    }
+    #if (input$model == "") {
+    #  shinyFeedback::feedbackDanger(
+    #    "model",
+    #    text = "Must enter model of car!"
+    #  )
+    #  shinyjs::disable('submit')
+    #} else {
+    #  #shinyFeedback::hideFeedback("model")
+    #  shinyjs::enable('submit')
+    #}
   })
 
   edit_car_dat <- reactive({
