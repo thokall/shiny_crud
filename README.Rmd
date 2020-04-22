@@ -1,0 +1,54 @@
+# shiny_crud
+
+## Start the traditional version by cloning this directory.
+
+## Install the following packages
+   NB! load devtools to make it easy to install the shinyFeedback package via github.
+The install.packages needs only to be done once, whereas the library() functions need to be done every time you open a new R-session.
+
+```{r, eval=FALSE}
+install.packages("shiny")
+install.packages("DT")
+install.packages("DBI")
+install.packages("RSQLite")
+install.packages("shinyjs")
+install.packages("shinycssloaders")
+install.packages("shinyWidgets")
+install.packages("shinydashboard")
+install.packages("lubridate")
+install.packages("shinytoastr")
+install.packages("dplyr")
+install.packages("dbplyr")
+install.packages("rsconnect")
+install.packages("packrat")
+install.packages("config")
+
+install.packages("devtools")
+library(devtools)
+install_github("merlinoa/shinyFeedback")
+```
+
+## Load libraries
+
+```{r}
+library(shiny)
+library(DT)
+library(DBI)
+library(RSQLite)
+library(shinyjs)
+library(shinycssloaders)
+library(shinyWidgets)
+library(shinydashboard)
+library(lubridate)
+library(shinytoastr)
+library(shinyFeedback)
+library(dplyr)
+library(dbplyr)
+
+```
+
+## Open ui.R in the traditional/shiny_app folder in Rstudio
+  NB! make sure your working directory is set to  "shiny_crud/traditional"
+
+
+## Press Run App to start the app on your machine.
